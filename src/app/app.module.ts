@@ -13,6 +13,7 @@ import { MoviesInCategoryComponent } from './pages/categories/movies-in-category
 import { AppRoutingModule } from './app-routing.module';
 import { YearsComponentComponent } from './pages/years-component/years-component.component';
 import { MoviesInYearsComponent } from './pages/years-component/movies-in-years/movies-in-years.component';
+import { HttpTestComponent } from './http-test/http-test.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MoviesInYearsComponent } from './pages/years-component/movies-in-years/
     MovieCoverComponent,
     YearsComponentComponent,
     MoviesInYearsComponent,
+    HttpTestComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [],
