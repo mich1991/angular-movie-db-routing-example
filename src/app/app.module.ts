@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { YearsComponentComponent } from './pages/years-component/years-component.component';
 import { MoviesInYearsComponent } from './pages/years-component/movies-in-years/movies-in-years.component';
 import { HttpTestComponent } from './http-test/http-test.component';
+import { AddMovieComponent } from './pages/add-movie/add-movie.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,9 @@ import { HttpTestComponent } from './http-test/http-test.component';
     YearsComponentComponent,
     MoviesInYearsComponent,
     HttpTestComponent,
+    AddMovieComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

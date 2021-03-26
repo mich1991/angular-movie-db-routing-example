@@ -1,7 +1,7 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { Movie } from '../models/movie';
 
 @Injectable({
@@ -18,5 +18,24 @@ export class HttpMoviesService {
   }
   postMovie(movie:Movie){
     return this.http.post(this.urlMovie, movie).pipe(tap(console.log))
+  }
+  putMovie(movie:Movie){
+    return this.http.put(`${this.urlMovie}/${movie.id}`, movie).pipe(tap(console.log))
+  }
+  patchMovie(movie:Partial<Movie>){
+    return this.http.patch(`${this.urlMovie}/${movie.id}`, movie).pipe(tap(console.log))
+  }
+  deleteMovie(id:string):Observable<{}>{
+    return this.http.delete(`${this.urlMovie}/${id}`).pipe(tap(console.log), catchError(this.errorHandler))
+  }
+  
+  private errorHandler(error:HttpErrorResponse){
+    console.error(
+      `Name : ${error.name},\n
+      Message: ${error.message},\n
+      Returned Code: ${error.status}\n 
+      `
+    )
+    return throwError('Something went wrong; Please try again later')
   }
 }

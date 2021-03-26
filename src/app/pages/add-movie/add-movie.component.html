@@ -1,0 +1,57 @@
+<div class="grid">
+    <form action="" class="container" #movieForm="ngForm" (ngSubmit)="send()" >
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="title" [(ngModel)]="model.title" name="title" required>
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <select class="browser-default" [(ngModel)]="model.year" name="year">
+                    <option *ngFor="let year of years" [ngValue]="year" >{{year}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <select class="browser-default" [(ngModel)]="model.category" name="category">
+                    <option value="1">Select Category</option>
+                    <option *ngFor="let category of categories" [ngValue]="category" >{{category}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="director" [(ngModel)]="model.director" name="director">
+                <label for="director">Director</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="plot" [(ngModel)]="model.plot" name="plot">
+                <label for="plot">plot</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="country" [(ngModel)]="model.country" name="country">
+                <label for="country">country</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="imdbRating" [(ngModel)]="model.imdbRating" name="imdbRating">
+                <label for="imdbRating">imdbRating</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input type="text" id="poster" [(ngModel)]="model.poster" name="poster">
+                <label for="poster">poster</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-large teal">Submit</button>
+        <button type="reset" class="btn yellow">Reset</button>
+    </form>
+</div>
